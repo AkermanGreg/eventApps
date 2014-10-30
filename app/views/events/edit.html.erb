@@ -1,0 +1,17 @@
+  <%= render 'layouts/nav' %>
+<h1>Edit Events</h1>
+<%= form_for @event do |f| %>
+        Title<%= f.text_field :title %><br />
+        Date: <%= f.date_select :date %><br />
+        Time: <%= f.text_field :time %><br />
+        Address: <%= f.text_field :address %><br />
+        City: <%= f.text_field :city %><br />
+        State: <%= f.text_field :state %><br />
+        Zip: <%= f.text_field :zip %><br />
+        Description: <%= f.text_field :desc %><br /> 
+     
+
+
+        <%= f.submit "Add Event!" %>
+
+    <% end %>

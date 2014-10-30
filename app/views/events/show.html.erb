@@ -1,0 +1,37 @@
+  <%= render 'layouts/nav' %>
+<%- model_class = Event -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  
+  <strong><%= model_class.human_attribute_name(:title) %>:</strong>
+  <%= @event.title %><br>
+  <strong><%= model_class.human_attribute_name(:date) %>:</strong>
+  <%= @date %><br>
+  <strong><%= model_class.human_attribute_name(:time) %>:</strong>
+  <%= @event.time %><br>
+  <strong><%= model_class.human_attribute_name(:address) %>:</strong>
+  <%= @event.address %><br>
+  <strong><%= model_class.human_attribute_name(:city) %>:</strong>
+  <%= @event.city %><br>
+  <strong><%= model_class.human_attribute_name(:state) %>:</strong>
+  <%= @event.state %><br>
+  <strong><%= model_class.human_attribute_name(:zip) %>:</strong>
+  <%= @event.zip %><br>
+  <strong><%= model_class.human_attribute_name(:desc) %>:</strong>
+  <%= @event.desc %><br>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              events_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_event_path(@event), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              event_path(@event),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
