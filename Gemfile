@@ -6,8 +6,6 @@ gem 'rails', '4.1.5'
 
 gem 'mongoid', github: 'mongoid/mongoid'
 
-gem 'jquery-rails'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.2.0'

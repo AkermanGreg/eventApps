@@ -1,17 +1,74 @@
   <%= render 'layouts/nav' %>
-<h1>Edit Events</h1>
-<%= form_for @event do |f| %>
-        Title<%= f.text_field :title %><br />
-        Date: <%= f.date_select :date %><br />
-        Time: <%= f.text_field :time %><br />
-        Address: <%= f.text_field :address %><br />
-        City: <%= f.text_field :city %><br />
-        State: <%= f.text_field :state %><br />
-        Zip: <%= f.text_field :zip %><br />
-        Description: <%= f.text_field :desc %><br /> 
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-md-3">
+<%- model_class = Event -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
+ 
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
      
+    <%= date_select(:request, :date, default: @requestrecord)%>
+     
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :time, :class => 'control-label' %>
+    <div class="controls">
+      <%= time_select(:request, :time, default: @requestrecord)%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :city, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :state, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :zip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :zip, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :desc, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :desc, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                events_path, :class => 'btn' %>
+  </div>
+<% end %>
 
 
-        <%= f.submit "Add Event!" %>
-
-    <% end %>
+</div>
+  <div class="col-md-9"><%= render 'layouts/map' %></div>
+</div>
+</div>
