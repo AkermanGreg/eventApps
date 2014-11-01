@@ -1,12 +1,12 @@
-  <%= render 'layouts/nav' %>
+  
 <%- model_class = Event -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Events</h1>
 </div>
-<table class="table table-striped">
-  <thead>
+
+   <table class="table table-striped">
+    <thead>
     <tr>
-   
       <th>Title</th>
       <th>Date</th>
       <th>Time</th>
@@ -15,7 +15,6 @@
       <th>State</th>
       <th>Zip</th>
       <th>Desc</th>
-     
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -24,7 +23,7 @@
       <tr>
     
         <td><%= event.title %></td>
-      	<td><%= event["date(2i)"] %> - <%= event["date(3i)"] %> - <%= event["date(1i)"] %> </td>
+        <td><%= event.date %> </td>
         <td><%= event.time %></td>
         <td><%= event.address %></td>
         <td><%= event.city %></td>
@@ -43,11 +42,11 @@
         </td>
       </tr>
     <% end %>
-
      <%= render 'layouts/map' %>
   </tbody>
 
 </table>
-
 <%= link_to "New", "/events/new", :class => 'btn btn-primary' %>
+
+
 

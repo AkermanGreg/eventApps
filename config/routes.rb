@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
-  
+get 'sessions/new' => 'sessions#new', as: :new_sessions
 
-  get 'sessions/new' => 'sessions#new', as: :new_sessions
+delete 'sessions' => 'sessions#destroy', as: :session
 
-  delete 'sessions' => 'sessions#destroy', as: :session
-
-  post 'sessions' => 'sessions#create'
+post 'sessions' => 'sessions#create'
 
   
-root 'sessions#new' 
+root 'events#index' 
 
    #resources :users, except: [:destroy]
 get 'users/' => 'users#index', as: :users
@@ -28,7 +26,7 @@ delete 'users/:id' => 'users#destroy'
 
 get 'events/' => 'events#index'
 
-get 'events/new' => 'events#new'
+get 'events/new' => 'events#new', as: :new_event
 
 get 'events/:id' => 'events#show', as: :event
 

@@ -6,12 +6,20 @@
   <%= javascript_include_tag 'application'%>
 
   <%= csrf_meta_tags %>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
 </head>
 <body>
-
-
-<%= yield %>
+	 <%= render 'layouts/nav' %>
+<div class="container-fluid">
+  <div class="row">
+   
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+	<%= yield %>
+  </div>
+  <div class="col-md-1"></div>
+</div>
 
 </body>
 </html>

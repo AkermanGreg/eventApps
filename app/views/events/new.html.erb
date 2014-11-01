@@ -1,9 +1,9 @@
-r  <%= render 'layouts/nav' %>
+
 <h1>New Events</h1>
 <%= form_for @event do |f| %>
         Title<%= f.text_field :title %><br />
        
-        Date: <%= f.date_select :date %><br />
+  <%= f.text_field :date, :data => {:provide => 'datepicker'}%><br />
         Time: <%= f.time_select :time %><br />
         Address: <%= f.text_field :address %><br />
         City: <%= f.text_field :city %><br />

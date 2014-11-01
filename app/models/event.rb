@@ -3,8 +3,8 @@ class Event
   include Mongoid::Attributes::Dynamic
   
   field :title, type: String
-  field :date, type: Date
-  field :time, type: Time
+  field :date, type: String
+  field :time, type: String
   field :address, type: String
   field :city, type: String
   field :state, type: String
