@@ -41,4 +41,5 @@ class EventsController < ApplicationController
 		@event.destroy
 		redirect_to events_path
 	end
+	
 end

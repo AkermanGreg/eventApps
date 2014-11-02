@@ -1,28 +1,40 @@
- 
-<%- model_class = Event -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<%= render 'layouts/nav' %>
+<h1>Event</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @event.title%>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @event.date%>
+</p>
+<p>
+  <strong>Time:</strong>
+  <%= @event.time%>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @event.address %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @event.city %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @event.state %>
+</p>
+<p>
+  <strong>Zip:</strong>
+  <%= @event.zip %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @event.desc %>
+</p>
 
-<dl class="dl-horizontal">
-  
-  <strong><%= model_class.human_attribute_name(:title) %>:</strong>
-  <%= @event.title %><br>
-  <strong><%= model_class.human_attribute_name(:date) %>:</strong>
-  <%= @date %><br>
-  <strong><%= model_class.human_attribute_name(:time) %>:</strong>
-  <%= @event.time %><br>
-  <strong><%= model_class.human_attribute_name(:address) %>:</strong>
-  <%= @event.address %><br>
-  <strong><%= model_class.human_attribute_name(:city) %>:</strong>
-  <%= @event.city %><br>
-  <strong><%= model_class.human_attribute_name(:state) %>:</strong>
-  <%= @event.state %><br>
-  <strong><%= model_class.human_attribute_name(:zip) %>:</strong>
-  <%= @event.zip %><br>
-  <strong><%= model_class.human_attribute_name(:desc) %>:</strong>
-  <%= @event.desc %><br>
-</dl>
+
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
