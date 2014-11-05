@@ -10,4 +10,6 @@ class Event
   field :state, type: String
   field :zip, type: String
   field :desc, type: String
+
+  belongs_to :user
 end

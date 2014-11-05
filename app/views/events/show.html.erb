@@ -1,6 +1,10 @@
 <%= render 'layouts/nav' %>
 <h1>Event</h1>
 <p>
+  <strong>Username:</strong>
+  <%= @event.user.username%>
+</p>
+<p>
   <strong>Title:</strong>
   <%= @event.title%>
 </p>

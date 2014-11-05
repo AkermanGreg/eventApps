@@ -13,8 +13,8 @@ class EventsController < ApplicationController
 	end
 
 	def create	
-	    @event = Event.new(params.require(:event).permit(:date, :time, :title, :address, :city, :state, :zip, :desc))
-	    # @date =  @event["date(1i)"].to_i, @event["date(2i)"].to_i, @event["date(3i)"].to_i
+	    @event = Event.new(params.require(:event).permit(:user_id, :date, :time, :title, :address, :city, :state, :zip, :desc))
+	    @event.user_id = current_user.id.to_s
 	    if @event.save
 	        redirect_to events_path
 	     else
