@@ -32,8 +32,8 @@
           <li><%= link_to "Sign out", sessions_path, method: :delete %></li>
           <% else %>
 
-          <li><%= button_to "Sign Up", new_user_path, method: :get, :class => 'navbar-btn btn btn-success' %>
-          <li> <%= button_to "Sign In", new_sessions_path, method: :get, :class => 'navbar-btn btn btn-success' %>
+          <li><%= button_to "Sign Up", new_user_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %>
+          <li> <%= button_to "Sign In", new_sessions_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %>
 
         <% end %>
       </ul>
