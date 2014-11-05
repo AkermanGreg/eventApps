@@ -7,18 +7,14 @@
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdVVw_ry9ZjBdAupGsrSzx6Pu4hBSZ7To">
     </script>
- <% @events.each do |event| %>      
-<%= event.address %> <%= event.city %><%= event.state %><%= event.zip %>
+ 
     <script type="text/javascript">
 
 
     function initialize() {
 
       var locations = [
-        {lat: <%= @address %>,
-          lng: -118.2500,
-          title:"marker 1"
-        },      
+         
                 {lat:34.0500,
           lng: -118.2500,
           title:"marker 1"
