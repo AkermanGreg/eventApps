@@ -2,6 +2,10 @@ class EventsController < ApplicationController
 
 	def index
 		@events = Event.all
+		@hash = Gmaps4rails.build_markers(@events) do |event, marker|
+  			marker.lat event.to_coordinates.first
+  			marker.lng event.to_coordinates.last
+		end
 	end
 
 	def show
@@ -13,8 +17,11 @@ class EventsController < ApplicationController
 	end
 
 	def create	
-	    @event = Event.new(params.require(:event).permit(:user_id, :date, :time, :title, :address, :city, :state, :zip, :desc))
+	    @event = Event.new(params.require(:event).permit(:full_address, :user_id, :date, :time, :title, :address, :city, :state, :zip, :desc, :latitude, :longitude))
 	    @event.user_id = current_user.id.to_s
+
+	 
+		
 	    if @event.save
 	        redirect_to events_path
 	     else
@@ -29,7 +36,7 @@ class EventsController < ApplicationController
    def update  	
     @event = Event.find(params[:id])
  	# @date =  @event["date(1i)"].to_i, @event["date(2i)"].to_i, @event["date(3i)"].to_i
-	    if @event.update_attributes(params.require(:event).permit(:title, :date, :time, :address, :city, :state, :zip, :desc))
+	    if @event.update_attributes(params.require(:event).permit(:full_address, :title, :date, :time, :address, :city, :state, :zip, :desc, :latitude, :longitude))
 	        redirect_to events_path
 	     else
 	        render 'edit'

@@ -36,6 +36,12 @@
   <strong>Description:</strong>
   <%= @event.desc %>
 </p>
+<p>
+  <strong>Coordinates</strong>
+  <%= @event.to_coordinates %>
+</p>
+<p>
+
 
 <div class="form-actions">
   <%= link_to 'Back', events_path %>
