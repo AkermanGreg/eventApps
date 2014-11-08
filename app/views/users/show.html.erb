@@ -3,6 +3,7 @@
    
   <div class="col-md-1"></div>
   <div class="col-md-10">
+  	<h1>Users</h1>
 <p>
   <strong>Username</strong>
   <%= @user.username %>
@@ -11,17 +12,20 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-<p>
-  <strong>Password confirmation:</strong>
-  <%= @user.password_confirmation %>
-</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br>
+<% current_user.events.each do |u| %>
+<%= u.address %> <%= u.city %> <%= u.state %><%= u.zip %>
+<% end %>
  </div>
+
+<% current_user.events.each do |u| %>
+<%= u.address %>
+<% end %>
+
+   
   <div class="col-md-1"></div>
 </div>

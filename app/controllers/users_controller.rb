@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id.to_s
           redirect_to @user, notice: 'User was successfully created.'
     else
-      render 'new'
+      redirect_to new_user_path, notice: "Invalid, Check form and try again"
     end
   end
 

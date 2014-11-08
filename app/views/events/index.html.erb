@@ -36,12 +36,18 @@
         <td><%= event.desc %></td>
         <td>
           <%= link_to "Show",  event_path(event), :class => 'btn btn-mini' %>
-          <% if current_user %>
+          
+         <% if current_user && current_user.id == event.user_id %>
+
+
+
           <%= link_to "Edit", edit_event_path(event), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
           event_path(event), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
           :class => 'btn btn-mini btn-danger' %>
+
           <% end %>
+         
         </td>
       </tr>
     <% end %>
@@ -63,23 +69,26 @@
   
   for(var i = 0; i<markerArray.length; i++){
     
-    infowindow = new google.maps.InfoWindow({ maxWidth: 320 })
+    
 
-     markerArray[i].infowindow  = eventArray[i].address +
+     markerArray[i].infowindow  =  eventArray[i].address +
      "<br>" + eventArray[i].city +
      "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + eventArray[i].desc;
-  }
 
+
+  }
 
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {
- 
+  mapTypeId: google.maps.MapTypeId.SATELITTE
 
   }, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(markerArray);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
   });
+
+
 
   
 

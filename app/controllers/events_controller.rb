@@ -2,11 +2,12 @@ class EventsController < ApplicationController
 
 	def index
 		@events = Event.all
+		
 		@hash = Gmaps4rails.build_markers(@events) do |event, marker|
   			marker.lat event.to_coordinates.first
   			marker.lng event.to_coordinates.last
 		end 
-		
+
 	end
 
 	def show

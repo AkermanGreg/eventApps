@@ -13,6 +13,8 @@ class User
 
   has_many :events
 
-  
+validates_length_of :email, :password_digest, :allow_blank => false
+
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
 end
