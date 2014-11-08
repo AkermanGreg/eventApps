@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])	
-				@hash = Gmaps4rails.build_markers(@event) do |event, marker|
+			@hash = Gmaps4rails.build_markers(@event) do |event, marker|
   			marker.lat event.to_coordinates.first
   			marker.lng event.to_coordinates.last
 		end
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 	    if @event.save
 	        redirect_to events_path
 	     else
-	        render 'new'
+	   redirect_to new_event_path, notice: "Invalid, Check form and try again"
 	    end
 	end
 

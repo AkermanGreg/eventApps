@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   def create
     
     @user = User.new(params.require(:user).permit(:username, :email, :password, :password_confirmation))
-
     if @user.save  
       session[:user_id] = @user.id.to_s
           redirect_to @user, notice: 'User was successfully created.'

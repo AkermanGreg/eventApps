@@ -18,7 +18,7 @@ after_validation :geocode       # auto-fetch coordinates    # auto-fetch coordin
   field :longitude, type: Float
   field :coordinates, type: Array
 
-  validates_presence_of :address, :city, :state
+  validates_presence_of :address, :city, :state, :allow_blank => false
 
   belongs_to :user
 
