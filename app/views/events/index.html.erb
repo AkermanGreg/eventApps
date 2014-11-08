@@ -59,40 +59,23 @@
   var markerArray = <%=raw @hash.to_json %>;
   
   
-  
-
-  //var markersForMap = [];
 
   
   for(var i = 0; i<markerArray.length; i++){
     
-     /*var contentString = document.getElementById('address').innerHTML;
+    infowindow = new google.maps.InfoWindow({ maxWidth: 320 })
 
-     var infowindow = new google.maps.InfoWindow({
-        content: contentString
-     });
-
-    var myLatLng = new google.maps.LatLng(markerArray[i].lat,markerArray[i].lng)
-     
-    var marker = new google.maps.Marker({
-         position: myLatLng,
-         setMap: map,
-         title: 'Uluru (Ayers Rock)'
-    });
-
-     google.maps.event.addListener(marker, 'click', function() {
-         infowindow.open(map,marker);
-     });
-
-     markersForMap.push(marker);*/
-     markerArray[i].infowindow  = "Address" + eventArray[i].address +
-     "<br>" + "City" + eventArray[i].city +
-     "<br>" + "Zipcode:" + eventArray[i].zip ;
+     markerArray[i].infowindow  = eventArray[i].address +
+     "<br>" + eventArray[i].city +
+     "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + eventArray[i].desc;
   }
 
 
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  handler.buildMap({ provider: {
+ 
+
+  }, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(markerArray);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
