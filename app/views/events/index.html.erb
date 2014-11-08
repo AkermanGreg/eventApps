@@ -61,28 +61,20 @@
 </div>
 
 <script>
+
   var eventArray = <%=raw @events.to_json %> 
   var markerArray = <%=raw @hash.to_json %>;
-  
-  
-
-  
+  console.log(eventArray)
   for(var i = 0; i<markerArray.length; i++){
-    
-    
+    var theLink = eventArray[i]._id.$oid  
 
-     markerArray[i].infowindow  =  eventArray[i].address +
-     "<br>" + eventArray[i].city +
-     "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + eventArray[i].desc;
-
+     markerArray[i].infowindow  =    "<a href=events/" + theLink + ">" +  eventArray[i].title + "</a>"+ eventArray[i].address + "<br>" + eventArray[i].city + "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + eventArray[i].desc;
 
   }
 
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {
-  mapTypeId: google.maps.MapTypeId.SATELITTE
-
-  }, internal: {id: 'map'}}, function(){
+ var mapOptions = { mapTypeId: google.maps.MapTypeId.HYBRID };
+handler.buildMap({ provider: mapOptions, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(markerArray);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
