@@ -63,7 +63,7 @@
      for(var i = 0; i<markerArray.length; i++){
         var theLink = eventArray[i]._id.$oid  
 
-        markerArray[i].infowindow  =    "<div style='font-size: 16px'><strong><a href=events/" + theLink + ">" + eventArray[i].title + "<br>" + "</a></strong>"+ eventArray[i].address + "<br>" + eventArray[i].city + "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + "<div style='width:180px'><strong>Event Description:</strong> " + "<br>" + eventArray[i].desc; + "</div></div>"
+        markerArray[i].infowindow  =    "<div style='font-size: 14px'><strong><a href=events/" + theLink + ">" + eventArray[i].title + "<br>" + "</a></strong>"+ eventArray[i].address + "<br>" + eventArray[i].city + "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + "<div style='width:180px'><strong>Event Description:</strong> " + "<br>" + eventArray[i].desc; + "</div></div>"
 
       }
 
