@@ -13,12 +13,10 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>User</th>
       <th>Date</th>
-      <th>Time</th>
       <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
+     
       <th>Desc</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -28,13 +26,10 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= link_to event.title , event_path(event), :class => 'btn btn-mini' %></td>
-        <td><%= event.date %> </td>
-        <td><%= event.time %></td>
-        <td><%= event.address %></td>
-        <td><%= event.city %></td>
-        <td><%= event.state %></td>
-        <td><%= event.zip %></td>
-        <td><%= event.desc %></td>
+        <td> <%= event.user.username%> </td>
+        <td><%= event.date %> at <%= event.time %> </td>
+        <td><%= event.address %>, <%= event.city %> <%= event.state %> <%= event.zip %></td>
+        <td width="25%"><%= event.desc %></td>
         <td>
           <%= link_to "Show",  event_path(event), :class => 'btn btn-mini' %>
           
@@ -68,7 +63,7 @@
      for(var i = 0; i<markerArray.length; i++){
         var theLink = eventArray[i]._id.$oid  
 
-        markerArray[i].infowindow  =    "<strong><a href=events/" + theLink + ">" + eventArray[i].title + "<br>" + "</a></strong>"+ eventArray[i].address + "<br>" + eventArray[i].city + "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + "<strong>Event Description:</strong> " + "<br>" + eventArray[i].desc;
+        markerArray[i].infowindow  =    "<div style='font-size: 16px'><strong><a href=events/" + theLink + ">" + eventArray[i].title + "<br>" + "</a></strong>"+ eventArray[i].address + "<br>" + eventArray[i].city + "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + "<div style='width:180px'><strong>Event Description:</strong> " + "<br>" + eventArray[i].desc; + "</div></div>"
 
       }
 
