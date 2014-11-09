@@ -3,49 +3,21 @@
    
     <div class="col-md-2"></div>
     <div class="col-md-4">
+     <div class="jumbotron">
       <h1>Event</h1>
-      <p>
-        <strong>Username:</strong>
-        <div id="username"><%= @event.user.username%></div>
-      </p>
-
-      <p>
-        <strong>Title:</strong>
-        <%= @event.title%>
-      </p>
-      <p>
-        <strong>Date:</strong>
-        <%= @event.date%>
-      </p>
-      <p>
-        <strong>Time:</strong>
-        <%= @event.time%>
-      </p>
-      <p>
-        <strong>Address:</strong>
-        <%= @event.address %>
-      </p>
-      <p>
-        <strong>City:</strong>
-        <%= @event.city %>
-      </p>
-      <p>
-        <strong>State:</strong>
-        <%= @event.state %>
-      </p>
-      <p>
-        <strong>Zip:</strong>
-        <%= @event.zip %>
-      </p>
-      <p>
-        <strong>Description:</strong>
-        <%= @event.desc %>
-      </p>
-      <p>
-        <strong>Coordinates</strong>
-        <%= @event.to_coordinates %>
-      </p>
-      <p>
+     
+<ul class="list-group">
+  <li class="list-group-item">Event Creator: <%= @event.user.username%></li>
+  <li class="list-group-item">Title: <%= @event.title%></li>
+  <li class="list-group-item">Date: <%= @event.date%></li>
+  <li class="list-group-item">Time: <%= @event.time%></li>
+  <li class="list-group-item">Address: <%= @event.address %></li>
+  <li class="list-group-item">City: <%= @event.city %></li>
+  <li class="list-group-item">State: <%= @event.state %></li>
+  <li class="list-group-item">Zip: <%= @event.zip %></li>
+  <li class="list-group-item">Description: <%= @event.desc %></li>
+  <li class="list-group-item">Coordinates: <%= @event.to_coordinates %></li>
+ </ul>     
 
 
       <div class="form-actions">
@@ -55,8 +27,11 @@
           <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
         <% end %>
       </div>
+      </div>
     </div>
     <div class="col-md-4">
+      <div class="jumbotron">
+      <h1>Event Map</h1>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
       </script>
       <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
@@ -74,6 +49,7 @@
         });
       </script>
     </div>
+  </div>
   <div class="col-md-2">   
   </div>
 </div>

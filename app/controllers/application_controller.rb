@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
 
 # if someone is logged in, use partial with links, else use partial without links.
 def authorize
-    
  redirect_to new_sessions_path if current_user.nil?
 end
 

@@ -10,7 +10,7 @@ class User
   field :email, type: String
   field :password_digest, type: String
  
-
+  has_many :photos
   has_many :events
 
 validates_length_of :email, :password_digest, :allow_blank => false

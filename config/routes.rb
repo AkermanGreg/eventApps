@@ -6,7 +6,7 @@ delete 'sessions' => 'sessions#destroy', as: :session
 
 post 'sessions' => 'sessions#create'
 
-  
+resources :photos
 root 'events#index' 
 
    #resources :users, except: [:destroy]

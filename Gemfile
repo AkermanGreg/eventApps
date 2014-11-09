@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.5'
 
 gem 'mongoid', github: 'mongoid/mongoid'
+gem "mongoid-paperclip", "~> 0.0.8", :require => "mongoid_paperclip"
 
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'

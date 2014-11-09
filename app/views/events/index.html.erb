@@ -62,18 +62,19 @@
 <script>
 
   var eventArray = <%=raw @events.to_json %> 
-  var markerArray = <%=raw @hash.to_json %>;
-  console.log(eventArray)
-  for(var i = 0; i<markerArray.length; i++){
-    var theLink = eventArray[i]._id.$oid  
+  var markerArray = <%=raw @hash.to_json %>
 
-     markerArray[i].infowindow  =    "<a href=events/" + theLink + ">" +  eventArray[i].title + "</a>"+ eventArray[i].address + "<br>" + eventArray[i].city + "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + eventArray[i].desc;
+ 
+     for(var i = 0; i<markerArray.length; i++){
+        var theLink = eventArray[i]._id.$oid  
 
-  }
+        markerArray[i].infowindow  =    "<strong><a href=events/" + theLink + ">" + eventArray[i].title + "<br>" + "</a></strong>"+ eventArray[i].address + "<br>" + eventArray[i].city + "<br>" + eventArray[i].state + ", " + eventArray[i].zip + "<br><br>" + "<strong>Event Description:</strong> " + "<br>" + eventArray[i].desc;
+
+      }
 
   handler = Gmaps.build('Google');
- var mapOptions = { mapTypeId: google.maps.MapTypeId.ROADMAP };
-handler.buildMap({ provider: mapOptions, internal: {id: 'map'}}, function(){
+  var mapOptions = { mapTypeId: google.maps.MapTypeId.ROADMAP };
+  handler.buildMap({ provider: mapOptions, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(markerArray);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();

@@ -6,15 +6,18 @@
 		<div class="col-md-4 bg_blur ">
     	    <a href="#" class="follow_btn hidden-xs">Follow</a>
 		</div>
+    
         <div class="col-md-8  col-xs-12">
-           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail picture hidden-xs" />
+          <% @user.photos.each do |p| %>
+            <%= image_tag p.image.url(:small), :class => "img-thumbnail picture hidden-xs" %>
+          <% end %>
            <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail visible-xs picture_mob" />
            <div class="header">
                 <h1> <%= @user.username %></h1>
                 <h4> <%= @user.email %></h4>
                 <span><%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+<%= link_to 'Back', users_path %> |
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Add Photo', new_photo_path %></span>
            </div>
         </div>
     </div>   
@@ -28,6 +31,9 @@
         </div>
     </div>
 </div>
+  <div class="row nav">    
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -57,5 +63,7 @@
 	<% end %>
 </tbody>
 </table>
+</div>
+<div class="col-md-1"></div>
 
 

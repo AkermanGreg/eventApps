@@ -42,7 +42,6 @@ class EventsController < ApplicationController
 
    def update  	
     @event = Event.find(params[:id])
- 	# @date =  @event["date(1i)"].to_i, @event["date(2i)"].to_i, @event["date(3i)"].to_i
 	    if @event.update_attributes(params.require(:event).permit(:full_address, :title, :date, :time, :address, :city, :state, :zip, :desc, :latitude, :longitude))
 	        redirect_to events_path
 	     else
