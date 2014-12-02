@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 
+gem "travis-lint"
+
 gem 'mongoid', github: 'mongoid/mongoid'
 gem "mongoid-paperclip", "~> 0.0.8", :require => "mongoid_paperclip"
 
