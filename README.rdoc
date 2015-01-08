@@ -1,5 +1,5 @@
 Event Mapper
-https://events-map.herokuapp.com
+
 A web application to create and share event locations
 
 Made with Ruby on Rails, JavaScript, Google Maps API and MongoDB.
